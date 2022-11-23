@@ -4,17 +4,18 @@ class Player {
         y: Number
     }
 
+    velocity = {
+        angle: Number,
+        speed: Number
+    }
+
     dimension = {
         width: Number,
         Height: Number,
     }
 
-    set position(arg){
-        this.position.x = arg.x
-        this.position.y = arg.y
-    }
-
-    testme(){
-        console.log('hihi')
+    update() {
+        this.position.x += Math.cos(this.velocity.angle) * this.velocity.speed;
+        this.position.y += Math.sin(this.velocity.angle) * this.velocity.speed;
     }
 }

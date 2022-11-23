@@ -22,12 +22,17 @@
     var ctx = canvas.getContext('2d')
 
     var player = new Player()
-    player.testme()
+    player.position = { x: 200, y: 200 }
+    player.velocity = { angle: 0, speed: 1 }
 
-    // Door
-    ctx.fillRect(130, 190, 40, 60);
+    function render() {
+        console.log(`posx: ${player.position.x}, posy: ${player.position.y}`)
+        player.update()
+        ctx.fillRect(player.position.x, player.position.y, 40, 40)
+        requestAnimationFrame(render)
+    }
 
-
+    render()
 </script>
 
 <style>
