@@ -23,6 +23,10 @@ app.get('/public/javascripts/Player.js',function(req,res){
   res.sendFile(path.join(__dirname + '/public/javascripts/Player.js')); 
 });
 
+app.get('/public/javascripts/InputListener.js',function(req,res){
+  res.sendFile(path.join(__dirname + '/public/javascripts/InputHandler.js')); 
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -43,3 +47,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
