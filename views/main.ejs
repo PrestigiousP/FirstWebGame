@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../public/javascripts/GameObject.js"></script>
+    <script type="text/javascript" src="../public/javascripts/objects/GameObject.js"></script>
     <script type="text/javascript" src="../public/javascripts/InputHandler.js"></script>
-    <script type="text/javascript" src="../public/javascripts/Setup.js"></script>
-    <script type="text/javascript" src="../public/javascripts/Player.js"></script>
-    <script type="text/javascript" src="../public/javascripts/BasicEnemy.js"></script>
+    <script type="text/javascript" src="../public/javascripts/InitElements.js"></script>
+    <script type="text/javascript" src="../public/javascripts/objects/Player.js"></script>
+    <script type="text/javascript" src="../public/javascripts/objects/BasicEnemy.js"></script>
 
     <title>PrestigiousP</title>
 </head>
@@ -26,26 +26,30 @@
     var ctx = canvas.getContext('2d')
 
     // Render elements
-    var renderElements = []
+    var canvasObjects = []
 
     // Setup player
     var player = new Player()
     player.position = { x: 200, y: 200 }
     player.velocity = { angle: 0, speed: 0 }
-    renderElements.push(player)
 
-    // add observers to inputs
+    // add observers, aka players to inputs
     addSubscriber(player)
 
-    initRenderElements(renderElements)
+    // add objects that will have to render 
+    initElements(canvasObjects, player)
 
-    render()
+    // add the player last to have the render on top
+    canvasObjects.push(player)
 
-    function render() {
-        player.update()
+    loop()
+
+    function loop() {
+        // player.updatePosition()
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        renderElements.forEach(elem => elem.render(ctx, canvas))
-        requestAnimationFrame(render)
+        canvasObjects.forEach(elem => elem.updatePosition(ctx))
+        canvasObjects.forEach(elem => elem.render(ctx))
+        requestAnimationFrame(loop)
     }
 </script>
 
@@ -57,10 +61,3 @@
 </style>
 
 </html>
-
-
-<!-- extends layout
-
-block content
-  h1= title
-  p Welcome to #{title} -->

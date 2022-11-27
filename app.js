@@ -44,23 +44,23 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 function loadJsFiles(){
-  app.get('/public/javascripts/GameObject.js',function(req,res){
-    res.sendFile(path.join(__dirname + '/public/javascripts/GameObject.js')); 
+  app.get('/public/javascripts/objects/GameObject.js',function(req,res){
+    res.sendFile(path.join(__dirname + '/public/javascripts/objects/GameObject.js')); 
   });
   
-  app.get('/public/javascripts/Player.js',function(req,res){
-    res.sendFile(path.join(__dirname + '/public/javascripts/Player.js')); 
+  app.get('/public/javascripts/objects/Player.js',function(req,res){
+    res.sendFile(path.join(__dirname + '/public/javascripts/objects/Player.js')); 
   });
   
   app.get('/public/javascripts/InputHandler.js',function(req,res){
     res.sendFile(path.join(__dirname + '/public/javascripts/InputHandler.js')); 
   });
   
-  app.get('/public/javascripts/Setup.js',function(req,res){
-    res.sendFile(path.join(__dirname + '/public/javascripts/Setup.js')); 
+  app.get('/public/javascripts/InitElements.js',function(req,res){
+    res.sendFile(path.join(__dirname + '/public/javascripts/InitElements.js')); 
   });
   
-  app.get('/public/javascripts/BasicEnemy.js',function(req,res){
-    res.sendFile(path.join(__dirname + '/public/javascripts/BasicEnemy.js')); 
+  app.get('/public/javascripts/objects/BasicEnemy.js',function(req,res){
+    res.sendFile(path.join(__dirname + '/public/javascripts/objects/BasicEnemy.js')); 
   });
 }

@@ -28,8 +28,13 @@ class GameObject {
         this.velocity.speed = 3;
     }
 
-    update() {
+    updatePosition() {
         this.position.x += Math.cos(this.velocity.angle) * this.velocity.speed;
         this.position.y += Math.sin(this.velocity.angle) * this.velocity.speed;
+    }
+
+    render(ctx){
+        ctx.fillStyle = '#000055';
+        ctx.fillRect(this.position.x, this.position.y, 40, 40)
     }
 }
