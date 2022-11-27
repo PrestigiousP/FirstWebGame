@@ -22,7 +22,6 @@ let directions = {
 const keysPressed = []
 const keyboardSubscribers = []
 
-
 addSubscriber = (sub) => keyboardSubscribers.push(sub);
 
 addEventListener('keydown', (event) => {
